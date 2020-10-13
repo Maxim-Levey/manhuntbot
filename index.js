@@ -4,7 +4,7 @@ const bot = new Client();
 
 const token = 'BotTokenRedacted';
 
-const PREFIX = '$';
+const prefix = '$';
 
 bot.on('ready', () =>{
     console.log('ManhuntBot is online!')
@@ -27,7 +27,9 @@ bot.on('guildMemberAdd', member =>{
 
 bot.on('message', msg=>{
     
-    let args = msg.content.slice(PREFIX.length).split(' ');
+    if(!msg.content.startsWith(prefix) || msg.author.bot) return;
+
+    const args = msg.content.slice(prefix.length).split(/ +/);
 
     switch (args[0]) {
         case "supportembed":
