@@ -1,11 +1,10 @@
 const Discord = require('discord.js');
+const util = require('minecraft-server-util'); //https://www.npmjs.com/package/minecraft-server-util
+
+const {token, prefix} = require ('./config.json')
 const {Client, Attachment, MessageEmbed} = require('discord.js');
 
-const util = require('minecraft-server-util');
-
 const bot = new Client();
-const prefix = '$';
-const token = 'BotTokenRedacted';
 
 bot.on('ready', () => {
   console.log('ManhuntBot is online!')
@@ -60,7 +59,6 @@ bot.on('message', msg => {
     break;
     case "ping":
     case "status":
-    //https://www.npmjs.com/package/minecraft-server-util
       util.status('play.hypixel.net')
       .then((response) => {
         const IPEmbed = new Discord.MessageEmbed()
@@ -87,45 +85,3 @@ bot.on('message', msg => {
 })
 
 bot.login(token);
-
-
-
-
-
-```js
-
-const prefix = '!';
-
-var userManager = discord.GetUserManager();
-var premiumType = userManager.GetCurrentUserPremiumType();
-
-client.on('message', msg => {
-
-  if (!msg.content.startsWith(prefix) || msg.author.client) return;
-  const args = msg.content.slice(prefix.length).split(/ +/);
-
-switch (args[0]) {
-case "nitro":
-  switch (premiumType)
-    {
-        case PremiumType.None:
-        const None = new Discord.MessageEmbed()
-          .setTitle("You do not have nitro!")
-          .setColor("#ffaa00");
-        msg.author.send(None);
-        return;
-        case PremiumType.Tier1:
-        const One = new Discord.MessageEmbed()
-          .setTitle("You have Nitro Classic!")
-          .setColor("#ffaa00");
-          msg.author.send(One);
-        return;
-        case PremiumType.Tier2:
-        const Two = new Discord.MessageEmbed()
-          .setTitle("You have Nitro+!")
-          .setColor("#ffaa00");
-          msg.author.send(Two);
-        return;
-        default:
-        return;
-}``` 
