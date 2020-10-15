@@ -18,7 +18,8 @@ bot.on('guildMemberAdd', member => {
 
   const WelcomeEmbed = new Discord.MessageEmbed()
     .setTitle('Welcome to Manhunt!')
-    .setColor('#ffaa00')
+    .setColor('#d321e4')
+    .setThumbnail('https://i.imgur.com/PGlZYx8.png')
     .setDescription(`\n\nThank you for joining the Manhunt.rip Discord, <@${member.user.id}>\n\nHead on over to <#764688945593188363> to introduce yourself or visit our forums at **https://Manhunt.rip/** for more information!`)
     .setThumbnail(member.user.displayAvatarURL())
   channel.send(WelcomeEmbed)
@@ -33,37 +34,55 @@ bot.on('message', msg => {
     case "help":
       const HelpEmbed = new Discord.MessageEmbed()
         .setTitle("Command List")
-        .setColor("#ffaa00")
+        .setColor("#d321e4")
+        .setThumbnail('https://i.imgur.com/PGlZYx8.png')
         .setDescription(
         "`$help` A full list of commands!\n\n`$info` Everything you need to know about Manhunt.rip\n\n`$status` Pings the server and lets you know its up and running\n\n"
         );
       msg.channel.send(HelpEmbed);
     break;
+
     case "supportembed":
       const SupportEmbed = new Discord.MessageEmbed()
         .setTitle("Create a Ticket")
-        .setColor("#ffaa00")
+        .setColor("#d321e4")
+        .setThumbnail('https://i.imgur.com/PGlZYx8.png')
         .setDescription(
         "Got a server enquiry? A bug report? Maybe something else?\n\nOur friendly support team would be more than happy to help!\n\nHead on over to <#764434995783270400> and type `-new` to get started."
         );
       msg.channel.send(SupportEmbed);
     break;
+
     case "info":
       const InfoEmbed = new Discord.MessageEmbed()
         .setTitle("Information")
-        .setColor("#ffaa00")
+        .setColor("#d321e4")
+        .setThumbnail('https://i.imgur.com/PGlZYx8.png')
         .setDescription(
         "Want to know more about Manhunt? Head on over to our forums at **https://manhunt.rip/** or jump right onto the server by adding `play.manhunt.rip` to your server list!"
         );
       msg.channel.send(InfoEmbed);
+    break; 
+
+    case "announce":
+      const AnnounceEmbed = new Discord.MessageEmbed()
+        .setTitle("We're Back!")
+        .setColor("#d321e4")
+        .setThumbnail('https://i.imgur.com/PGlZYx8.png')
+        .setDescription(
+        "But not as you know us!\n\nYou may have noticed a few changes happening and while we're excited to share it with you all, we're not quite there yet.\n\nPlease stay tuned and get ready for Manhunt.rip!\n\n@everyone"
+        );
+      msg.channel.send(AnnounceEmbed);
     break;
+
     case "ping":
     case "status":
-      util.status('play.hypixel.net')
+      util.status('play.manhunt.rip')
       .then((response) => {
         const IPEmbed = new Discord.MessageEmbed()
              .setTitle('Manhunt.rip is Online!')
-             .setColor("#ffaa00")
+             .setColor("#d321e4")
+             .setThumbnail('https://i.imgur.com/PGlZYx8.png')
              .addField('**IP:**', response.host)
              .addField('**Players Online:**', response.onlinePlayers);
            msg.channel.send(IPEmbed);
@@ -72,10 +91,23 @@ bot.on('message', msg => {
         throw error;
       });
     break;
+
+    case "rank":
+      const RanksEmbed = new Discord.MessageEmbed()
+        .setTitle("Ranks")
+        .setColor("#d321e4")
+        .setThumbnail('https://i.imgur.com/PGlZYx8.png')
+        .setDescription(
+        "Want to know more about Manhunt? Head on over to our forums at **https://manhunt.rip/** or jump right onto the server by adding `play.manhunt.rip` to your server list!"
+        );
+      msg.channel.send(RanksEmbed);
+    break; 
+    
     default:
       const WhoopsEmbed = new Discord.MessageEmbed()
         .setTitle("Whoops!")
-        .setColor("#ffaa00")
+        .setColor("#d321e4")
+        .setThumbnail('https://i.imgur.com/PGlZYx8.png')
         .setDescription(
         "Uh oh! That command doesn't exist\n\nThink it should? Open a ticket on the Manhunt.rip Discord and let us know! "
         );
