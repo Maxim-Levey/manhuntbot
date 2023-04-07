@@ -1,4 +1,4 @@
-# manhuntbot
+# manhuntBot
 A multi-use Discord bot built with Node.js
 
 Requires discord.js | `npm install discord.js`
